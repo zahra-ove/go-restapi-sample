@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:8080
+
+### Create Event
+POST {{baseUrl}}/events
+Content-Type: application/json
+
+{
+  "name": "Event 2",
+  "description": "Desc 2",
+  "location": "Loc 2",
+  "dateTime": "2026-01-01T15:11:00.000Z"
+}
+
+### Get Event
+GET {{baseUrl}}/events
