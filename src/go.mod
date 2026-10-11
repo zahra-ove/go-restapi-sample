@@ -1,6 +1,6 @@
 module github.com/zahra-ove/go-restapi-sample
 
-go 1.25.14
+go 1.25.0
 
 require github.com/gin-gonic/gin v1.12.0
 
