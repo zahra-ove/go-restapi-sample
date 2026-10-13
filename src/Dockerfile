@@ -16,13 +16,14 @@ COPY ./src .
 FROM base AS development
 
 RUN go install github.com/go-delve/delve/cmd/dlv@v1.25.2 \
+    && go install github.com/air-verse/air@v1.64.5 \
     && mkdir -p /data
 
 ENV GIN_MODE=debug
+
 EXPOSE 8080 2345
 
-# Rebuild mounted source on each container start; keep SQLite in /data.
-CMD ["sh", "-c", "go build -gcflags='all=-N -l' -o /tmp/api . && cd /data && exec dlv exec /tmp/api --headless --listen=:2345 --api-version=2 --accept-multiclient --continue"]
+CMD ["air", "-c", ".air.toml"]
 
 FROM base AS builder
 
