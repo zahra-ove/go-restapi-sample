@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:8080
+
+### Create Event
+POST {{baseUrl}}/events
+Content-Type: application/json
+
+{
+  "name": "Event 3",
+  "description": "Desc 3",
+  "location": "Loc 3",
+  "dateTime": "2026-01-01T15:11:00.000Z"
+}
+
+
+### Get Events
+GET {{baseUrl}}/events
+
+
+### Get Event
+GET {{baseUrl}}/events/1
+
+
+### Update Event
+PUT {{baseUrl}}/events/4
+Content-Type: application/json
+
+{
+  "name": "updated Event 3",
+  "description": "Desc 3",
+  "location": "Loc 3",
+  "dateTime": "2026-01-01T15:11:00.000Z"
+}
+
+
+### Delete Event
+DELETE {{baseUrl}}/events/3
+
+
+### Signup user
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+  "email": "sample2@gmail.com",
+  "password": "123"
+}
+
+
+### Login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "sample2@gmail.com",
+  "password": "123"
+}
