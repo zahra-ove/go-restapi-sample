@@ -22,8 +22,9 @@ GET {{baseUrl}}/events/1
 
 
 ### Update Event
-PUT {{baseUrl}}/events/4
+PUT {{baseUrl}}/events/1
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTJAZ21haWwuY29tIiwiZXhwIjoxNzkyNDgyNzY4LCJ1c2VySWQiOjN9.GEMfCJh1ozdO2sFy6n1sgUFw6C-KHdaWQicV1H0TsHs
 
 {
   "name": "updated Event 3",

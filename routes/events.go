@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -45,6 +46,7 @@ func createEvent(context *gin.Context) {
 	}
 
 	event.UserID = context.GetInt64("userId")
+
 	if err := event.Save(); err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not save event"})
 		return
@@ -60,10 +62,18 @@ func updateEvent(context *gin.Context) {
 		return
 	}
 
-	_, err = models.GetEvent(eventId)
+	event, err := models.GetEvent(eventId)
 
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not fetch the event"})
+		return
+	}
+
+	eventUserId := context.GetInt64("userId")
+	fmt.Println("event.UserID:", event.UserID)
+	fmt.Println("eventUserId:", eventUserId)
+	if event.UserID != eventUserId {
+		context.JSON(http.StatusForbidden, gin.H{"message": "Could not update the event"})
 		return
 	}
 
@@ -78,6 +88,8 @@ func updateEvent(context *gin.Context) {
 	updatedEvent.ID = eventId
 	err = updatedEvent.Update()
 	if err != nil {
+		fmt.Println("====\n")
+		fmt.Println(err)
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not update the event"})
 		return
 	}
@@ -96,6 +108,12 @@ func deleteEvent(context *gin.Context) {
 
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not fetch the event"})
+		return
+	}
+
+	eventUserId := context.GetInt64("userId")
+	if event.UserID != eventUserId {
+		context.JSON(http.StatusForbidden, gin.H{"message": "Could not delete the event"})
 		return
 	}
 
