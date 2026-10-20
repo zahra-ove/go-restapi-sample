@@ -3,12 +3,13 @@
 ### Create Event
 POST {{baseUrl}}/events
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTJAZ21haWwuY29tIiwiZXhwIjoxNzkyNDc3MzMzLCJ1c2VySWQiOjN9.bXnNYs_vQLv1-UxxXHD9X4AfuAfl0A09fNhWdwFuyMM
 
 {
-  "name": "Event 3",
-  "description": "Desc 3",
-  "location": "Loc 3",
-  "dateTime": "2026-01-01T15:11:00.000Z"
+  "name": "Event 5",
+  "description": "Desc 5",
+  "location": "Loc 5",
+  "dateTime": "2028-01-01T15:11:00.000Z"
 }
 
 

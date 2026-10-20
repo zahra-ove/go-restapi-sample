@@ -41,18 +41,12 @@ func (u *User) ValidateCredentials() error {
 	err := row.Scan(&u.ID, &retrievedPassword)
 
 	if err != nil {
-		fmt.Print("here1\n")
-		fmt.Print("err:", err)
 		return errors.New("Invalid Credentials")
 	}
 
 	passwordIsValid := utils.CheckHashedPassword(retrievedPassword, u.Password)
 
 	if !passwordIsValid {
-		fmt.Print("here2\n")
-		fmt.Print("PasswordIsInvalid:", passwordIsValid, "\n")
-		fmt.Print("hashed password:", u.Password, "\n")
-		fmt.Print("password:", retrievedPassword, "\n")
 		return errors.New("Invalid Credentials")
 	}
 
