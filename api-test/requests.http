@@ -34,8 +34,8 @@ Content-Type: application/json
 
 
 ### Delete Event
-DELETE {{baseUrl}}/events/3
-
+DELETE {{baseUrl}}/events/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTJAZ21haWwuY29tIiwiZXhwIjoxNzkyNDc3MzMzLCJ1c2VySWQiOjN9.bXnNYs_vQLv1-UxxXHD9X4AfuAfl0A09fNhWdwFuyMM
 
 ### Signup user
 POST {{baseUrl}}/signup
