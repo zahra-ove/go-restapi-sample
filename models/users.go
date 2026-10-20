@@ -14,7 +14,7 @@ type User struct {
 	Password string `binding:"required"`
 }
 
-func (user User) Save() error {
+func (user *User) Save() error {
 	query := `INSERT INTO users(email, password) VALUES (?, ?)`
 	stmt, err := db.DB.Prepare(query)
 
@@ -28,7 +28,13 @@ func (user User) Save() error {
 		return err
 	}
 
-	_, err = stmt.Exec(user.Email, hashedPassword)
+	userData, err := stmt.Exec(user.Email, hashedPassword)
+	user.ID, err = userData.LastInsertId()
+
+	if err != nil {
+		return err
+	}
+
 	return err
 }
 

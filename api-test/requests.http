@@ -3,12 +3,12 @@
 ### Create Event
 POST {{baseUrl}}/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTJAZ21haWwuY29tIiwiZXhwIjoxNzkyNDc3MzMzLCJ1c2VySWQiOjN9.bXnNYs_vQLv1-UxxXHD9X4AfuAfl0A09fNhWdwFuyMM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTRAZ21haWwuY29tIiwiZXhwIjoxNzkyNDg1NDI4LCJ1c2VySWQiOjR9.cN7aCJAOCszWndfweE1Dpc2ZgWHd5gL1Vm3nsK6n6So
 
 {
-  "name": "Event 5",
-  "description": "Desc 5",
-  "location": "Loc 5",
+  "name": "Event 3",
+  "description": "Desc 3",
+  "location": "Loc 3",
   "dateTime": "2028-01-01T15:11:00.000Z"
 }
 
@@ -43,7 +43,7 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-  "email": "sample2@gmail.com",
+  "email": "sample4@gmail.com",
   "password": "123"
 }
 
@@ -53,6 +53,20 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-  "email": "sample2@gmail.com",
+  "email": "sample4@gmail.com",
   "password": "123"
 }
+
+
+### Register for event
+POST {{baseUrl}}/events/1/register
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTRAZ21haWwuY29tIiwiZXhwIjoxNzkyNDg1NDI4LCJ1c2VySWQiOjR9.cN7aCJAOCszWndfweE1Dpc2ZgWHd5gL1Vm3nsK6n6So
+
+
+
+
+### Cancel event registration
+DELETE {{baseUrl}}/events/1/register
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBsZTRAZ21haWwuY29tIiwiZXhwIjoxNzkyNDg1NDI4LCJ1c2VySWQiOjR9.cN7aCJAOCszWndfweE1Dpc2ZgWHd5gL1Vm3nsK6n6So
